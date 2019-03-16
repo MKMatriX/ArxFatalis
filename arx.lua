@@ -129,7 +129,7 @@ function OnEvent(event, arg)
 -- 3
 	local Speed = {Mega, Movis}
 	local Reveal = {Nhi, Stregum, Vista}
-	local Fireball = {Aam, Yok, Yaar}
+	local Fireball = {Aam, Yok, Taar}
 	local Feed = {Aam, Vitae, Cosum}
 	local IceProjection = {Aam, Fridd, Taar} -- H
 -- 4
