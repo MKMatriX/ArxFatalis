@@ -46,15 +46,19 @@ end
 
 function castRune(points)
 	centerMouse()
-	centerMouse()
---	PressMouseButton(1)
+	
+	PressMouseButton(1)
 	for i , point in ipairs(points) do
 		x_from, y_from = moveMouse(point[1], point[2])
 	end
---	ReleaseMouseButton(1)
+	ReleaseMouseButton(1)
 end
 
 function castSpell(runes)
+	centerMouse()
+	centerMouse()
+	centerMouse()
+	PressKey(0x1d)
 	centerMouse()
 	for i , rune in ipairs(runes) do
 		--OutputLogMessage(point[1] .. " " .. point[2] .. " - ")
@@ -63,6 +67,7 @@ function castSpell(runes)
 		ReleaseMouseButton(1)
 		Sleep(50)
 	end
+	ReleaseKey(0x1d)
 end
 
 
@@ -154,7 +159,7 @@ function OnEvent(event, arg)
 	local IceField = {Aam, Fridd, Spacium} -- H
 -- 8
 	local Invisibility = {Nhi, Vista}
-	local Mana drain = {Stregum, Movis}
+	local ManaDrain = {Stregum, Movis}
 	local Chaos = {Aam, Mega, Morte}
 	local EnchantObject = {Mega, Stregum, Cosum}
 	local LifeDrain = {Vitae, Movis} -- H
@@ -175,14 +180,14 @@ function OnEvent(event, arg)
 			castSpell(LifeDrain)
 		end
 		if arg == 2 then
-			castSpell(Heal)
-			castSpell(CurePoison)
+			castSpell(ManaDrain)
 		end
 		if arg == 3 then
-			castSpell(FireField)
+			castSpell(NightVision)
 		end
 		if arg == 4 then
-			castSpell(Fireball)
+			castSpell(Heal)
+			--castSpell(CurePoison)
 		end
 		-- 5 is for longJump makes with duck-duck-jump macro with 0.03 sec (depends on CPU)
 		if arg == 6 then
@@ -198,4 +203,22 @@ function OnEvent(event, arg)
 			castSpell(Speed)
 		end
 	end
+
+	if event == "M_RELEASED" then 
+		if arg == 1 then
+			castSpell(ActivatePortal)
+		end
+	end 
+
+	if event == "MOUSE_BUTTON_RELEASED" then 
+		if arg == 3 then
+			castSpell(MagicMissile)
+		end
+		if arg == 4 then
+			castSpell(Fireball)
+		end
+		if arg == 5 then
+			castSpell(FireField)
+		end
+	end 
 end
