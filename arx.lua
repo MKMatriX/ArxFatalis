@@ -220,5 +220,8 @@ function OnEvent(event, arg)
 		if arg == 5 then
 			castSpell(FireField)
 		end
+		if arg == 6 then
+			castSpell(Telekinesis)
+		end
 	end 
 end
